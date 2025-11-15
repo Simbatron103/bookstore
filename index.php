@@ -8,6 +8,11 @@
 </head>
 <body>
 
+    <header>
+        <h1>Bokbutiken</h1>
+        <div class="subtitle">SELECT your book</div>
+    </header>
+
     <nav>
         <ul>
             <li><a href="index.php" class="active">Lista Böcker</a></li>

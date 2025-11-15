@@ -59,6 +59,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
 </head>
 <body>
 
+    <header>
+        <h1>Bokbutiken</h1>
+        <div class="subtitle">SELECT your book</div>
+    </header>
+
     <nav>
         <ul>
             <li><a href="index.php">Lista Böcker</a></li>

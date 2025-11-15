@@ -3,19 +3,58 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
-    padding: 40px;
+    padding: 15px 40px;
     background-color: #f4f7f6;
     color: #333;
     line-height: 1.6;
 }
 
+/* Header */
+header {
+    background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);
+    color: #004d40;
+    padding: 6px 40px;
+    border-radius: 8px;
+    margin: 0 0 12px 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-left: 5px solid #00796b;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 3.2em;
+    font-weight: 800;
+    color: #004d40;
+    border: none;
+    padding: 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+header .subtitle {
+    margin-left: 15px;
+    font-size: 1em;
+    font-weight: 400;
+    color: #00796b;
+    font-style: italic;
+    letter-spacing: 1px;
+    display: inline-block;
+}
+
+header .subtitle::before {
+    content: "– ";
+    margin-right: 5px;
+}
+
 /* Navigation */
 nav {
     background-color: #ffffff;
-    padding: 15px 20px;
+    padding: 10px 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 nav ul {
@@ -23,7 +62,7 @@ nav ul {
     padding: 0;
     margin: 0;
     display: flex;
-    gap: 15px;
+    gap: 10px;
     flex-wrap: wrap;
 }
 
@@ -35,7 +74,7 @@ nav a {
     color: #00796b;
     text-decoration: none;
     font-weight: 500;
-    padding: 8px 15px;
+    padding: 6px 12px;
     border-radius: 4px;
     transition: background-color 0.2s;
 }
@@ -53,8 +92,9 @@ nav a.active {
 h1 {
     color: #00796b;
     border-bottom: 2px solid #00796b;
-    padding-bottom: 10px;
+    padding-bottom: 8px;
     margin-top: 0;
+    margin-bottom: 15px;
 }
 
 /* Lists */
