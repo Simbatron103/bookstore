@@ -166,6 +166,24 @@ input[type="text"]:focus {
     box-shadow: 0 0 0 2px rgba(0, 121, 107, 0.1);
 }
 
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+    background-color: white;
+    cursor: pointer;
+}
+
+select:focus {
+    outline: none;
+    border-color: #00796b;
+    box-shadow: 0 0 0 2px rgba(0, 121, 107, 0.1);
+}
+
 button {
     background-color: #00796b;
     color: white;
