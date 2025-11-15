@@ -46,8 +46,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
         try {
             // Steg 5: Lägg till boken i databasen
             // Vi använder prepare() och execute() för säkerhet (skyddar mot SQL-injection)
+            // Istället för direkt string-interpolering (t.ex. "VALUES ('$title')") använder vi placeholders (?)
+            // Detta separerar SQL-koden från data, så att data alltid behandlas som data och inte som SQL-kod
             $stmt = $pdo->prepare("INSERT INTO books (isbn, title, author_id, year_pub) VALUES (?, ?, ?, ?)");
             $stmt->execute([$isbn, $title, $author_id, $yearPub]);
+            
+            // OBS: Farligt sätt (direkt interpolering) - ANVÄND INTE I RIKTIGA PROJEKT!
+            // $sql = "INSERT INTO books (isbn, title, author_id, year_pub) VALUES ('$isbn', '$title', $author_id, '$yearPub')";
+            // $pdo->query($sql);
 
             $success = "Boken '{$title}' lades till i databasen!";
 
