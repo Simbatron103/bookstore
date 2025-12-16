@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
         try {
             // Lägg till författaren i databasen
             // TODO: Skriv SQL-queryn för att lägga till en ny författare i authors-tabellen
-            $sql = "--TODO";
+            $sql = "INSERT INTO authors (name_first, name_last) VALUES ('$firstName', '$lastName')";
         
             // Kör SQL-queryn mot databasen
             // OBS: osäker metod, använd inte i riktiga projekt!
