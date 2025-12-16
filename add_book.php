@@ -32,10 +32,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
     
     // Hämta inmatning från formuläret
     // OBS: osäker metod, använd inte i riktiga projekt!
-    $title = $_POST['title'];
-    $author_id = $_POST['author_id'];
-    $yearPub = $_POST['year_pub'];
-    $isbn = $_POST['isbn'];
+    $title =  filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING);
+    $author_id =  filter_input(INPUT_POST, 'author_id', FILTER_SANITIZE_NUMBER_INT);
+    $yearPub =  filter_input(INPUT_POST, 'year_pub', FILTER_SANITIZE_STRING);
+    $isbn =  filter_input(INPUT_POST, 'isbn', FILTER_SANITIZE_STRING);
 
     // Validera att obligatoriska fält är ifyllda
     if (empty($title) || empty($author_id) || empty($isbn)) {
@@ -44,9 +44,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
         try {
             // Lägg till boken i databasen
             // OBS: osäker metod, använd inte i riktiga projekt!
-            $sql = "INSERT INTO books (isbn, title, author_id, year_pub) VALUES ('$isbn', '$title', $author_id, '$yearPub')";
-            $pdo->query($sql);
-            $success = "Boken '{$title}' lades till i databasen!";
+           $sql = "INSERT INTO books (isbn, title, author_id, year_pub) VALUES (?, ?, ?, ?)";
+           $stmt = $pdo->prepare($sql);
+           $stmt->execute([$isbn, $title, $author_id, $yearPub]);
+           $success = "Boken '{$title}' lades till i databasen!";
 
         } catch (\PDOException $e) {
             $error = "Kunde inte lägga till boken: " . $e->getMessage();
