@@ -39,7 +39,7 @@
         // Skriv SQL-queryn
         // Hämta alla författare från authors-tabellen
         $sql = "
-            SELECT name_first name_last from authors ORDER BY name_first ASC
+            SELECT name_first, name_last from authors ORDER BY name_first ASC
         ";
 
         // Kör SQL-queryn mot databasen
